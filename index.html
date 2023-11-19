@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    
 </head>
 
 <body>
@@ -20,8 +20,8 @@
             <p id="score">Score: 0</p>
             <p id="timer">Time: 10</p>
             <div class="input-container">
-                <input id="input" type="text">
-                <button id="btn">Retry</button>
+                <input id="input" type="text" oninput="compareChar()">
+                <button id="stargame">Star game</button>
 
             </div>
         </div>
@@ -65,7 +65,7 @@
         </div>
 
     </div>
-
+    <script src="script.js" ></script>
 </body>
 
 </html>
