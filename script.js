@@ -22,6 +22,18 @@ function startgame() {
     display_random();
     updatescore();
 }
+function resetgame() {
+    score = 0;
+    time = 10;
+    updatescore();
+    document.getElementById('input').value = '';
+    timer.innerText = 'Game Over';
+    input.disabled = true;
+    start_btn.disabled = false;
+    gameStarted = false;
+
+}
+
 
 start_btn.addEventListener("click", startgame)
 
@@ -39,7 +51,7 @@ function compareChar()/*so sanh 2 ky tu cho san va nhap vao dung score tang*/ {
         score++;
     } else {
         score--;
-        if (score < 0) {
+        if (score < 0) { //không cho điểm âm
             score = 0;
         }
 
@@ -51,11 +63,11 @@ function compareChar()/*so sanh 2 ky tu cho san va nhap vao dung score tang*/ {
 
 }
 
-input.addEventListener("keyup", ({ key }) => {
-    if (key === "Enter") {
-        compareChar();
-    }
-})
+// input.addEventListener("keyup", ({ key }) => {
+//     if (key === "Enter") {
+//         compareChar();
+//     }
+// })
 
 function display_random()/*cai nay dung de random ky tu*/ {
     const character = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
@@ -78,7 +90,7 @@ function Timer() {
     if (!gameStarted) {
         return;
     }
-    if (time <= 0) {
+    if (time == 0) { //neu time = 0 thi dung game
 
         timer.innerText = 'Game Over';
         clearInterval(clear);
@@ -94,18 +106,6 @@ function Timer() {
     }
 }
 
-function resetgame() {
-    score = 0;
-    time = 10;
-    updatescore();
-    document.getElementById('input').value = '';
-    timer.innerText = 'Game Over';
-    input.disabled = true;
-    start_btn.disabled = false;
-    start_btn.innerText = "Play again"
-    gameStarted = false;
-
-}
 
 //Keyboard click effect
 function handleKeyDown(key) {
