@@ -1,44 +1,50 @@
-let score = 0;
-let timer = 10;
+let keyword = document.getElementById('word');
+let score = document.getElementById('score')
+let timer = document.getElementById('timer')
+let input = document.getElementById('input')
+let start_btn = document.getElementById('btn')
 
-function stargame(){
-    score =0;
-    timer =10;
-    display_random();
-    updatescore();
-    updateTimer();
-}
-//Hide doan tren de chay khong time
 
-function compareChar()/*so sanh 2 ky tu cho san va nhap vao dung score tang*/{
-    const givenChar = document.getElementById('word').innerText;
-    const input = document.getElementById('input').value;
-    if (givenChar === input){
-        score++;
-    }else 
-        document.write('You Lose');
-    updatescore();
-    display_random()
 
+let getScore = 0;
+let time = 10;
+let clear;
+
+function handleTimer() {
+    clear = setInterval(Timer, 1000)
 }
 
-function display_random()/*cai nay dung de random ky tu*/{
-    const character = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    const randomLocal = Math.floor(Math.random() * character.length);
-    const randomchar = character[randomLocal];
-    document.getElementById('word').innerText = randomchar;
-    document.getElementById('input').value ='';
-}
+randomWord = ['ability', 'across', 'assume', 'how', 'much', 'is', 'your', 'what', 'where', 'some'];
+let random = randomWord[Math.floor(Math.random() * randomWord.length)];
 
-function updatescore(){
-    document.getElementById('score').innerText = 'Score: ' + score;
+
+
+
+
+
+function start() {
+    handleTimer();
+    start_btn.disabled = true;
+    input.disabled = false;
+    time = 10;
 }
-function updateTimer(){
-    if (timer>0){
-        timer--;
+start_btn.addEventListener("click", start)
+
+
+
+
+function Timer() {
+    if (time <= 0) {
+        clearInterval(clear);
+        timer.innerText = 'Game Over';
+        input.disabled = true;
+        start_btn.disabled = false;
+        
+        start_btn.innerText = "Play again"
     }
-    document.getElementById('time').innerText= 'Time: ' +timer;
+    else {
+        timer.innerHTML = "Time: " + time
+        time--;
+    }
 }
 
-display_random();//Dung` khi khong time co time thi hide
-updatescore();//Dung khi khong time co time thi hide
