@@ -1,6 +1,6 @@
 let score = 0;
 let time = 10;
-let start_btn = document.getElementById('stargame');
+let start_btn = document.getElementById('startgame');
 let clear;
 let input = document.getElementById('input');
 let gameStarted = false;

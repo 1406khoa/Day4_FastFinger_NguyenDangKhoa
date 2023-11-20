@@ -93,7 +93,7 @@ div {
 }
 
 
-#stargame {
+#startgame {
     cursor: pointer;
     width: fit-content;
     margin: auto;
@@ -105,10 +105,14 @@ div {
 
 }
 
-#btn:hover {
+#startgame:hover {
     transition: all .1s linear;
     color: white;
 }
+
+
+
+    
 
 #keyboard {
     display: flex;
