@@ -107,25 +107,6 @@ function Timer() {
 }
 
 
-//Keyboard click effect
-function handleKeyDown(key) {
-    const tempKey = key.toUpperCase();
-    //META la nut window
-    if (tempKey === " " || tempKey === "CONTROL" || tempKey === "SHIFT" || tempKey === "ALT" || tempKey === "META") {
-        return; //ignore
-    }
-    let keyElement = document.getElementById(tempKey);
-    keyElement.classList.add("isClicked");
-    const handleKeyUp = () => {
-        keyElement.classList.remove("isClicked");
-        window.removeEventListener("keyup", handleKeyUp);
-    };
-    window.addEventListener("keyup", handleKeyUp);
-}
-
-window.addEventListener("keydown", ({ key }) => {
-    handleKeyDown(key);
-});
 
 
 
